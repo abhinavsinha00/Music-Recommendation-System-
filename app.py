@@ -6,7 +6,8 @@ similarity= pickle.load(open("similarity.pkl","rb"))
 
 st.title("🎵 Bollywood Music Recommender")
 
-user_input = st.text_input("Enter song name:")
+song_list = df['song_name'].str.strip().tolist()
+user_input = st.selectbox("Search a song:", sorted(song_list))
 
 def recommend(song):
     song = song.strip().lower()
